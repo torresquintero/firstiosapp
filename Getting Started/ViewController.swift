@@ -10,16 +10,22 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var clickCountLabel: UILabel!
+    
+    var clickCount: Int = 0 {
+        didSet {
+            clickCountLabel.text = "\(clickCount)"
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
+        clickCountLabel.text = "0"
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func clickButton(_ sender: Any) {
+        clickCount += 1
     }
-
-
 }
 
